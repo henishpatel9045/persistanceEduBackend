@@ -4,7 +4,9 @@ from .models import *
 # Register your models here.
 admin.site.register([HomeCarouselImage, HomeCards, HomePrograms, HomeResults, 
                      AboutCarouselImage,
-                     Cource])
+                     Cource,
+                     Testimonial,
+                     AchievementsCard])
 
 class ResultSectionInline(admin.StackedInline):
     model = ResultsIndividual

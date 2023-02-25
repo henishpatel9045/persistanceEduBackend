@@ -6,12 +6,12 @@ from .serializers import *
 
 # Create your views here.
 def getData(model, ser):
-    try:
+    # try:
         data = model.objects.all()
         serializer = ser(data, many=True)
         return serializer.data
-    except Exception:
-        return []
+    # except Exception:
+    #     return []
 
 
 class HomePage(APIView):
