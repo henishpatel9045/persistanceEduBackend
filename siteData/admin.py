@@ -6,7 +6,8 @@ admin.site.register([HomeCarouselImage, HomeCards, HomePrograms, HomeResults,
                     #  AboutCarouselImage,
                      Cource,
                      Testimonial,
-                     AchievementsCard])
+                     AchievementsCard,
+                     ResultImage])
 
 # class ResultSectionInline(admin.StackedInline):
 #     model = ResultsIndividual
