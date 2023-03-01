@@ -30,10 +30,10 @@ class HomePage(APIView):
         )
 
 
-class AboutPage(APIView):
-    def get(self, req):
-        carouselImage = getData(AboutCarouselImage, AboutCarouselImageSerializer)
-        return Response({"carouselImage": carouselImage})
+# class AboutPage(APIView):
+#     def get(self, req):
+#         carouselImage = getData(AboutCarouselImage, AboutCarouselImageSerializer)
+#         return Response({"carouselImage": carouselImage})
 
 
 class CourcePage(APIView):
@@ -50,7 +50,7 @@ class TestimonialPage(APIView):
 
 class ResultsPage(APIView):
     def get(self, req):
-        results = getData(ResultsSection, ResultsSectionSerializer)
+        results = getData(ResultImage, ResultImageSerializer)
         aCards = getData(AchievementsCard, AchievementCardSerializer)
         return Response({"results": results,
                          "aCards": aCards})

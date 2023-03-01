@@ -4,12 +4,13 @@ from .models import (
     HomeCarouselImage,
     HomePrograms,
     HomeResults,
-    AboutCarouselImage,
+    # AboutCarouselImage,
     Cource,
     Testimonial,
     AchievementsCard,
-    ResultsIndividual,
-    ResultsSection,
+    ResultImage,
+    # ResultsIndividual,
+    # ResultsSection,
 )
 
 
@@ -44,14 +45,14 @@ class HomeProgramsSerializer(serializers.ModelSerializer):
         )
 
 
-class AboutCarouselImageSerializer(serializers.ModelSerializer):
-    image = serializers.SerializerMethodField()
-    def get_image(self, obj):
-        return obj.image.url
+# class AboutCarouselImageSerializer(serializers.ModelSerializer):
+#     image = serializers.SerializerMethodField()
+#     def get_image(self, obj):
+#         return obj.image.url
 
-    class Meta:
-        model = AboutCarouselImage
-        fields = ("image",)
+#     class Meta:
+#         model = AboutCarouselImage
+#         fields = ("image",)
 
 
 class CourceSerializer(serializers.ModelSerializer):
@@ -95,33 +96,39 @@ class AchievementCardSerializer(serializers.ModelSerializer):
         fields = ("title",)
 
 
-class ResultsIndividualSerializer(serializers.ModelSerializer):
-    image = serializers.SerializerMethodField()
-    def get_image(self, obj):
-        return obj.image.url
-
+class ResultImageSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ResultsIndividual
-        fields = (
-            "image",
-            "name",
-            "title",
-            "subtitle",
-        )
+        model = ResultImage
+        fields = ("title", "subtitle", "image",)
 
 
-class ResultsSectionSerializer(serializers.ModelSerializer):
-    data = serializers.SerializerMethodField()
+# class ResultsIndividualSerializer(serializers.ModelSerializer):
+#     image = serializers.SerializerMethodField()
+#     def get_image(self, obj):
+#         return obj.image.url
 
-    class Meta:
-        model = ResultsSection
-        fields = (
-            "title",
-            "desc",
-            "data",
-        )
+#     class Meta:
+#         model = ResultsIndividual
+#         fields = (
+#             "image",
+#             "name",
+#             "title",
+#             "subtitle",
+#         )
 
-    def get_data(self, obj):
-        results = ResultsIndividual.objects.filter(section=obj)
-        serializer = ResultsIndividualSerializer(results, many=True)
-        return serializer.data
+
+# class ResultsSectionSerializer(serializers.ModelSerializer):
+#     data = serializers.SerializerMethodField()
+
+#     class Meta:
+#         model = ResultsSection
+#         fields = (
+#             "title",
+#             "desc",
+#             "data",
+#         )
+
+#     def get_data(self, obj):
+#         results = ResultsIndividual.objects.filter(section=obj)
+#         serializer = ResultsIndividualSerializer(results, many=True)
+#         return serializer.data

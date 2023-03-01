@@ -3,19 +3,19 @@ from .models import *
 
 # Register your models here.
 admin.site.register([HomeCarouselImage, HomeCards, HomePrograms, HomeResults, 
-                     AboutCarouselImage,
+                    #  AboutCarouselImage,
                      Cource,
                      Testimonial,
                      AchievementsCard])
 
-class ResultSectionInline(admin.StackedInline):
-    model = ResultsIndividual
-    extra = 1
+# class ResultSectionInline(admin.StackedInline):
+#     model = ResultsIndividual
+#     extra = 1
 
 
-@admin.register(ResultsSection)
-class ResultsSectionAdmin(admin.ModelAdmin):
-    inlines = [ResultSectionInline]
+# @admin.register(ResultsSection)
+# class ResultsSectionAdmin(admin.ModelAdmin):
+#     inlines = [ResultSectionInline]
 
 
 # @admin.register(Contact)
