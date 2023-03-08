@@ -94,7 +94,7 @@ CLOUDINARY = {
     "cloud_name": "dcvss1bjk",
     "api_key": "432286512515721",
     "api_secret": "WnFTYhWDmGDC2zrmbA7RmgtH-B0",
-    "api_proxy": "http://x.x.x.x:8080",
+    "api_proxy": "https://proxy.server:3128",
 }
 
 cloudinary.config(
