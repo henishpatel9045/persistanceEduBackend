@@ -97,6 +97,10 @@ class AchievementCardSerializer(serializers.ModelSerializer):
 
 
 class ResultImageSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+    def get_image(self, obj):
+        return obj.image.url
+    
     class Meta:
         model = ResultImage
         fields = ("title", "subtitle", "image",)
