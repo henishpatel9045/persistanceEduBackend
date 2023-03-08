@@ -9,7 +9,7 @@ SECRET_KEY = "django-insecure-p#ya7wd78v@4vc5k$*i2tz0a@t9az57$&vyttzj_6m+=4p+&s&
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["persistanceedu.pythonanywhere.com"]
 
 
 INSTALLED_APPS = [
