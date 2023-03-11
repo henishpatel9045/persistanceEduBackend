@@ -6,17 +6,16 @@ admin.site.register([HomeCarouselImage, HomeCards, HomePrograms, HomeResults,
                     #  AboutCarouselImage,
                      Cource,
                      Testimonial,
-                     AchievementsCard,
-                     ResultImage])
+                     AchievementsCard,])
 
-# class ResultSectionInline(admin.StackedInline):
-#     model = ResultsIndividual
-#     extra = 1
+class ResultSectionInline(admin.StackedInline):
+    model = ResultsIndividual
+    extra = 1
 
 
-# @admin.register(ResultsSection)
-# class ResultsSectionAdmin(admin.ModelAdmin):
-#     inlines = [ResultSectionInline]
+@admin.register(ResultsSection)
+class ResultsSectionAdmin(admin.ModelAdmin):
+    inlines = [ResultSectionInline]
 
 
 # @admin.register(Contact)

@@ -74,29 +74,29 @@ class AchievementsCard(models.Model):
     def __str__(self):
         return self.title
 
-class ResultImage(models.Model):
-    title = models.CharField(max_length=1500)
-    subtitle = models.CharField(max_length=2500, default="", null=True, blank=True)
-    image = CloudinaryField("image")
-
-
-# class ResultsSection(models.Model):
+# class ResultImage(models.Model):
 #     title = models.CharField(max_length=1500)
-#     subtitle = models.CharField(max_length=2500, null=True, blank=True)
-
-#     def __str__(self):
-#         return self.title
-
-
-# class ResultsIndividual(models.Model):
-#     section = models.ForeignKey(ResultsSection, on_delete=models.CASCADE)
+#     subtitle = models.CharField(max_length=2500, default="", null=True, blank=True)
 #     image = CloudinaryField("image")
-#     name = models.CharField(max_length=250)
-#     title = models.CharField(max_length=250, null=True, blank=True, default="")
-#     subtitle = models.CharField(max_length=250, null=True, blank=True, default="")
 
-#     def __str__(self):
-#         return self.name
+
+class ResultsSection(models.Model):
+    title = models.CharField(max_length=1500)
+    subtitle = models.CharField(max_length=2500, null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+
+class ResultsIndividual(models.Model):
+    section = models.ForeignKey(ResultsSection, on_delete=models.CASCADE)
+    image = CloudinaryField("image")
+    name = models.CharField(max_length=250)
+    title = models.CharField(max_length=250, null=True, blank=True, default="")
+    subtitle = models.CharField(max_length=250, null=True, blank=True, default="")
+
+    def __str__(self):
+        return self.name
 
 
 # # ------------------------------- CONTACT PAGE ------------------------------- #

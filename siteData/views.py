@@ -50,7 +50,7 @@ class TestimonialPage(APIView):
 
 class ResultsPage(APIView):
     def get(self, req):
-        results = getData(ResultImage, ResultImageSerializer)
+        results = getData(ResultsSection, ResultsSectionSerializer)
         aCards = getData(AchievementsCard, AchievementCardSerializer)
         return Response({"results": results,
                          "aCards": aCards})
