@@ -17,6 +17,7 @@ class ResultSectionInline(admin.StackedInline):
 class ResultsSectionAdmin(admin.ModelAdmin):
     inlines = [ResultSectionInline]
     list_display = ['title', 'order', ]
+    list_editable = ["order",]
     ordering = ["order",]
 
 
