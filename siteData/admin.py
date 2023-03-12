@@ -16,6 +16,7 @@ class ResultSectionInline(admin.StackedInline):
 @admin.register(ResultsSection)
 class ResultsSectionAdmin(admin.ModelAdmin):
     inlines = [ResultSectionInline]
+    list_display = ['title', 'order', ]
 
 
 # @admin.register(Contact)

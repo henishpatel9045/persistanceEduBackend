@@ -1,1 +1,3 @@
-*.sqlite3
+persistance.db.sqlite3
+*pip*
+*.pyc

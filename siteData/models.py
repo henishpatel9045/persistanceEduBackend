@@ -83,9 +83,13 @@ class AchievementsCard(models.Model):
 class ResultsSection(models.Model):
     title = models.CharField(max_length=1500)
     subtitle = models.CharField(max_length=2500, null=True, blank=True)
+    order = models.IntegerField(default=1)
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        ordering = ['order',]
 
 
 class ResultsIndividual(models.Model):
