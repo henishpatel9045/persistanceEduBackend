@@ -128,6 +128,7 @@ class ResultsSectionSerializer(serializers.ModelSerializer):
         fields = (
             "title",
             "subtitle",
+            'stream',
             "data",
         )
 

@@ -50,7 +50,7 @@ class TestimonialPage(APIView):
 
 class ResultsPage(APIView):
     def get(self, req):
-        qs = ResultsSection.objects.all().order_by("order")
+        qs = ResultsSection.objects.all().order_by("stream","order")
         results = ResultsSectionSerializer(qs, many=True)
         results = results.data
         aCards = getData(AchievementsCard, AchievementCardSerializer)

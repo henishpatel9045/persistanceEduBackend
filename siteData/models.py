@@ -82,15 +82,21 @@ class AchievementsCard(models.Model):
 
 
 class ResultsSection(models.Model):
+    STREAM = [
+        ("JEE", "JEE"),
+        ("NEET", "NEET"),
+    ]
+    
     title = models.CharField(max_length=1500)
     subtitle = models.CharField(max_length=2500, null=True, blank=True)
+    stream = models.CharField(choices=STREAM, default='JEE', max_length=30)
     order = models.IntegerField(default=1, validators=[MinValueValidator(1, "Order starts from 1.")])
 
     def __str__(self):
         return self.title
     
     class Meta:
-        ordering = ['order',]
+        ordering = ['stream', 'order',]
 
 
 class ResultsIndividual(models.Model):
