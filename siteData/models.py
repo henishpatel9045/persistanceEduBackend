@@ -1,5 +1,6 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
+from django.core.validators import MinValueValidator
 
 # Create your models here.
 
@@ -83,7 +84,7 @@ class AchievementsCard(models.Model):
 class ResultsSection(models.Model):
     title = models.CharField(max_length=1500)
     subtitle = models.CharField(max_length=2500, null=True, blank=True)
-    order = models.IntegerField(default=1)
+    order = models.IntegerField(default=1, validators=[MinValueValidator(1, "Order starts from 1.")])
 
     def __str__(self):
         return self.title
@@ -94,7 +95,7 @@ class ResultsSection(models.Model):
 
 class ResultsIndividual(models.Model):
     section = models.ForeignKey(ResultsSection, on_delete=models.CASCADE)
-    image = CloudinaryField("image")
+    image = CloudinaryField("image", blank=True, null=True)
     name = models.CharField(max_length=250)
     title = models.CharField(max_length=250, null=True, blank=True, default="")
     subtitle = models.CharField(max_length=250, null=True, blank=True, default="")
