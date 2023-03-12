@@ -108,7 +108,10 @@ class AchievementCardSerializer(serializers.ModelSerializer):
 class ResultsIndividualSerializer(serializers.ModelSerializer):
     image = serializers.SerializerMethodField()
     def get_image(self, obj):
-        return obj.image.url
+        try:
+            return obj.image.url
+        except Exception:
+            return None
 
     class Meta:
         model = ResultsIndividual

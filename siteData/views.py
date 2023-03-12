@@ -50,11 +50,15 @@ class TestimonialPage(APIView):
 
 class ResultsPage(APIView):
     def get(self, req):
-        qs = ResultsSection.objects.all().order_by("stream","order")
-        results = ResultsSectionSerializer(qs, many=True)
-        results = results.data
+        qs_jee = ResultsSection.objects.filter(stream="JEE").order_by("stream","order")
+        qs_neet = ResultsSection.objects.filter(stream="NEET").order_by("stream","order")
+        jee_results = ResultsSectionSerializer(qs_jee, many=True)
+        neet_results = ResultsSectionSerializer(qs_neet, many=True)
+        jee_results = jee_results.data
+        neet_results = neet_results.data
         aCards = getData(AchievementsCard, AchievementCardSerializer)
-        return Response({"results": results,
+        return Response({"jee_results": jee_results,
+                         "neet_results": neet_results,
                          "aCards": aCards})
 
 
