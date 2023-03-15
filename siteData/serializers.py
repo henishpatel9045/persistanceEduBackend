@@ -113,6 +113,15 @@ class ResultsIndividualSerializer(serializers.ModelSerializer):
         except Exception:
             return None
 
+    title = serializers.SerializerMethodField()
+    subtitle = serializers.SerializerMethodField()
+
+    def get_title(self, obj):
+        return obj.collegeName
+
+    def get_subtitle(self, obj):
+        return obj.phone
+
     class Meta:
         model = ResultsIndividual
         fields = (
