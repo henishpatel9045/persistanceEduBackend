@@ -103,12 +103,15 @@ class ResultsIndividual(models.Model):
     section = models.ForeignKey(ResultsSection, on_delete=models.CASCADE)
     image = CloudinaryField("image", blank=True, null=True)
     name = models.CharField(max_length=250)
-    title = models.CharField(max_length=250, null=True, blank=True, default="")
-    subtitle = models.CharField(max_length=250, null=True, blank=True, default="")
+    collegeName = models.CharField(max_length=250, null=True, blank=True, default="")
+    phone = models.CharField(max_length=250, null=True, blank=True, default="")
+    order = models.IntegerField(default=1, validators=[MinValueValidator(1, "Order starts from 1.")])
 
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ['order',]
 
 # # ------------------------------- CONTACT PAGE ------------------------------- #
 
